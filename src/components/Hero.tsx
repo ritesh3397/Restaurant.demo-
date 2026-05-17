@@ -20,7 +20,7 @@ export default function Hero() {
         >
           <motion.h1 
             variants={zoomIn(0, 0.95)}
-            className="text-6xl md:text-[82px] font-serif font-bold leading-[1.1] tracking-tight mb-8"
+            className="text-4xl sm:text-6xl md:text-[82px] font-serif font-bold leading-[1.1] tracking-tight mb-8"
           >
             Crafted Flavors.<br />
             <span className="text-primary italic">Timeless</span> Experience.
@@ -28,7 +28,7 @@ export default function Hero() {
           
           <motion.p 
             variants={fadeIn('up', 0.05)}
-            className="text-lg text-text-muted max-w-lg mb-10 leading-relaxed font-sans"
+            className="text-base sm:text-lg text-text-muted max-w-lg mb-10 leading-relaxed font-sans"
           >
             Luxury dining experience with handcrafted cuisine and modern ambiance. 
             Every plate tells a story of tradition and innovation.

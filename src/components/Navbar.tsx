@@ -100,10 +100,10 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
           </motion.button>
           
           <button
-            className="md:hidden p-2 text-dark"
+            className="md:hidden p-2 text-primary hover:bg-primary/10 rounded-xl transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={32} /> : <MenuIcon size={32} />}
+            {isMobileMenuOpen ? <X size={28} /> : <MenuIcon size={28} />}
           </button>
           
           <Link to="/reservation">
@@ -142,8 +142,8 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
               ))}
               <div className="h-[1px] bg-dark/10 w-full my-2" />
               <Link to="/reservation">
-                <button className="w-full bg-primary text-white py-5 rounded-2xl font-black uppercase tracking-widest">
-                  Order Online
+                <button className="w-full bg-primary text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-lg active:scale-[0.98] transition-transform">
+                  Book a Table
                 </button>
               </Link>
             </div>

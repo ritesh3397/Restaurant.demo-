@@ -54,9 +54,9 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
       />
 
       {error && !isLoaded && (
-         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 text-gray-400 text-[10px] text-center p-4">
-            <span className="mb-1 opacity-50">Image unavailable</span>
-            <span className="text-[8px] opacity-30 italic">Trying fallback...</span>
+         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100/80 backdrop-blur-sm">
+            <div className="w-6 h-6 border-[1px] border-primary/20 rounded-full animate-ping opacity-20" />
+            <span className="mt-3 text-[9px] uppercase tracking-[0.2em] font-black text-primary/40">Lumière</span>
          </div>
       )}
     </div>

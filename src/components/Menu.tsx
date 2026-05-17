@@ -51,7 +51,7 @@ export default function Menu() {
           </motion.h2>
           <motion.h3
             variants={zoomIn(0.05, 0.95)}
-            className="text-5xl md:text-8xl font-black mb-12 italic leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-12 italic leading-tight"
           >
             The <span className="text-dark not-italic">Signature</span> Menu
           </motion.h3>

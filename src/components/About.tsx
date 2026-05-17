@@ -57,7 +57,7 @@ export default function About() {
             </motion.h2>
             <motion.h3
               variants={zoomIn(0.05, 0.95)}
-              className="text-5xl md:text-7xl font-black mb-8 italic"
+              className="text-3xl sm:text-5xl md:text-7xl font-black mb-8 italic"
             >
               Elegance In Every <span className="text-dark not-italic">Detail</span>
             </motion.h3>

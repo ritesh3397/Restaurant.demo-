@@ -258,7 +258,7 @@ export const GALLERY_IMAGES = [
   '/src/assets/images/lumiere_interior_1_1779023246382.png',
   '/src/assets/images/lumiere_interior_2_1779023261470.png',
   '/src/assets/images/lumiere_vibe_1_1779023277490.png',
-  'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1551632432-c735e50954f2?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop',
+  '/src/assets/images/lumiere_table_setting_new_1779034121279.png',
+  '/src/assets/images/lumiere_cocktail_prep_new_1779034134956.png',
+  '/src/assets/images/lumiere_chef_plating_new_1779034154775.png',
 ];

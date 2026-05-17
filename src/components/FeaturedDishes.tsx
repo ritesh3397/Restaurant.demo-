@@ -26,7 +26,7 @@ export default function FeaturedDishes() {
               <span className="w-8 h-[2px] bg-primary" />
               Chef's Recommends
             </h2>
-            <h3 className="text-5xl md:text-6xl font-black tracking-tight">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">
               Our <span className="italic">Signature</span> Masterpieces
             </h3>
           </motion.div>

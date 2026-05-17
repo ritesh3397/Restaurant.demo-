@@ -13,7 +13,7 @@ export default function ContactPage() {
               variants={zoomIn(0, 0.95)}
               initial="initial"
               animate="animate"
-              className="text-6xl md:text-8xl font-black italic mb-6"
+              className="text-4xl sm:text-6xl md:text-8xl font-black italic mb-6"
             >
               Contact <span className="text-primary not-italic">Us</span>
             </motion.h1>
@@ -21,7 +21,7 @@ export default function ContactPage() {
               variants={fadeIn('up', 0.2)}
               initial="initial"
               animate="animate"
-              className="text-xl text-text-muted max-w-2xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed"
             >
               We're here to assist you with any inquiries. From private events 
               to specialized dietary requests, let us know how we can help.
