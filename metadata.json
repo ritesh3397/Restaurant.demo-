@@ -1,0 +1,8 @@
+{
+  "name": "Lumière Dining",
+  "description": "A premium modern luxury restaurant experience with soft 3D cinematic visuals and immersive interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

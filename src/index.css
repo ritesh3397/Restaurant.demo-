@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Poppins:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  --color-primary: #C05E26;
+  --color-primary-light: #F4A261;
+  --color-secondary: #E9C46A;
+  --color-dark: #1F1F1F;
+  --color-bg-light: #FFF8F2;
+  --color-bg-warm: #FAF3EB;
+  --color-accent-glow: #F4A261;
+  --color-text-main: #1F1F1F;
+  --color-text-muted: #5B5B5B;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow: glow 2s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 5px var(--color-primary-light)); }
+    50% { filter: drop-shadow(0 0 20px var(--color-primary-light)); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-bg-light text-text-main font-sans selection:bg-primary/20 transition-colors duration-500;
+    scroll-behavior: smooth;
+  }
+  
+  .dark body {
+    @apply bg-[#121212] text-[#F5F5F5];
+  }
+  
+  .dark .glass {
+    @apply bg-white/5 border-white/10;
+  }
+  
+  .dark .neumorph {
+    background: #1A1A1A;
+    box-shadow: 10px 10px 30px #0a0a0a,
+               -10px -10px 30px #2a2a2a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.glass {
+  @apply backdrop-blur-md bg-[rgba(255,248,242,0.8)] border border-[rgba(192,94,38,0.1)] shadow-lg;
+}
+
+.glass-dark {
+  @apply backdrop-blur-md bg-black/40 border border-white/10 shadow-lg;
+}
+
+.soft-3d-shadow {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.5);
+}
+
+.neumorph {
+  background: #FAF3EB;
+  box-shadow: 20px 20px 60px #d5cfc8,
+             -20px -20px 60px #ffffff;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
