@@ -4,6 +4,7 @@ import PageTransition from '@/src/components/PageTransition';
 import { motion } from 'motion/react';
 import { fadeIn, zoomIn } from '@/src/lib/animations';
 import OptimizedImage from '@/src/components/OptimizedImage';
+import { getAssetUrl } from '@/src/lib/images';
 
 export default function AboutPage() {
   return (
@@ -41,9 +42,9 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
               {[
-                { name: 'Marco Rossi', role: 'Executive Chef', image: '/assets/images/chef_marco.png' },
-                { name: 'Elena Chen', role: 'Pastry Chef', image: '/assets/images/chef_elena.png' },
-                { name: 'Julian Vane', role: 'Head Sommelier', image: '/assets/images/sommelier_julian.png' }
+                { name: 'Marco Rossi', role: 'Executive Chef', image: getAssetUrl('chef_marco') },
+                { name: 'Elena Chen', role: 'Pastry Chef', image: getAssetUrl('chef_elena') },
+                { name: 'Julian Vane', role: 'Head Sommelier', image: getAssetUrl('sommelier_julian') }
               ].map((member, i) => (
                 <motion.div
                   key={i}

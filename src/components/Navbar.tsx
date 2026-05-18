@@ -38,19 +38,19 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 w-full z-50 transition-all duration-500 py-4 px-6 md:px-12',
-        isScrolled || isMobileMenuOpen ? 'glass py-3' : 'bg-transparent'
+        'fixed top-0 left-0 w-full z-50 transition-all duration-500 py-3 md:py-4 px-4 md:px-12',
+        isScrolled || isMobileMenuOpen ? 'glass py-2 md:py-3' : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 md:gap-3"
           >
-            <div className="w-8 h-8 bg-primary rounded-full shadow-[0_4px_12px_rgba(192,94,38,0.3)]"></div>
-            <span className="text-2xl font-serif font-bold tracking-tight">
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full shadow-[0_4px_12px_rgba(192,94,38,0.3)]"></div>
+            <span className="text-xl md:text-2xl font-serif font-bold tracking-tight">
               Lumière
             </span>
           </motion.div>

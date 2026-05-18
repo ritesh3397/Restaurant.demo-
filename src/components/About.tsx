@@ -4,23 +4,25 @@ import { Quote } from 'lucide-react';
 import { fadeIn, staggerContainer, zoomIn } from '@/src/lib/animations';
 import OptimizedImage from './OptimizedImage';
 
+import { getAssetUrl } from '@/src/lib/images';
+
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-white overflow-hidden">
+    <section id="about" className="py-16 md:py-24 px-4 md:px-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <motion.div 
-            className="relative"
+            className="relative order-2 lg:order-1"
             variants={fadeIn('right', 0)}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="relative z-10 p-4 border border-primary/10 rounded-[60px] overflow-hidden">
+            <div className="relative z-10 p-2 md:p-4 border border-primary/10 rounded-[40px] md:rounded-[60px] overflow-hidden">
               <OptimizedImage
-                src="/assets/images/chef_marco.png"
+                src={getAssetUrl('chef_marco')}
                 alt="Executive Chef"
-                className="w-full h-auto rounded-[50px] shadow-2xl"
+                className="w-full h-auto rounded-[35px] md:rounded-[50px] shadow-2xl"
                 width="1000"
                 height="1300"
                 loading="lazy"
@@ -28,8 +30,8 @@ export default function About() {
             </div>
             
             {/* Background Decorative element */}
-            <div className="absolute top-[10%] left-[-10%] w-[120%] h-[120%] border-2 border-primary/5 rounded-full animate-spin-slow" />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-primary/10 blur-[80px] rounded-full" />
+            <div className="absolute top-[10%] left-[-5%] md:left-[-10%] w-[110%] md:w-[120%] h-[110%] md:h-[120%] border-2 border-primary/5 rounded-full animate-spin-slow pointer-events-none" />
+            <div className="absolute -bottom-10 -right-5 md:-right-10 w-32 md:w-48 h-32 md:h-48 bg-primary/10 blur-[60px] md:blur-[80px] rounded-full" />
             
             {/* Counter Floating */}
             <motion.div

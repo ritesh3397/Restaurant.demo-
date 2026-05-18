@@ -12,27 +12,27 @@ export default function FeaturedDishes() {
   ].filter(Boolean) as typeof MENU_ITEMS;
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-bg-warm relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-12 bg-bg-warm relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div 
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-6"
           variants={staggerContainer(0.08, 0)}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.div variants={zoomIn(0, 0.95)}>
-            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-primary" />
+            <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-3 md:mb-4 flex items-center gap-2">
+              <span className="w-6 md:w-8 h-[2px] bg-primary" />
               Chef's Recommends
             </h2>
-            <h3 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight">
+            <h3 className="text-[32px] sm:text-4xl md:text-6xl font-black tracking-tight leading-tight">
               Our <span className="italic">Signature</span> Masterpieces
             </h3>
           </motion.div>
           <motion.p
             variants={fadeIn('up', 0.1)}
-            className="text-text-muted max-w-sm mb-2"
+            className="text-text-muted max-w-sm mb-2 text-sm md:text-base"
           >
             Handpicked ingredients crafted by our world-class chefs to create 
             harmonies of flavor you've never experienced.
@@ -40,7 +40,7 @@ export default function FeaturedDishes() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-10"
           variants={staggerContainer(0.08, 0.1)}
           initial="initial"
           whileInView="animate"
@@ -51,11 +51,11 @@ export default function FeaturedDishes() {
               key={dish.id}
               variants={slideIn(i % 2 === 0 ? 'left' : 'right', 0)}
               whileHover={{ y: -10 }}
-              className="group relative"
+              className="group relative h-full"
             >
-              <div className="bg-white rounded-[40px] p-6 pt-24 mt-20 soft-3d-shadow transition-all duration-500 group-hover:shadow-2xl h-full flex flex-col">
+              <div className="bg-white rounded-[35px] md:rounded-[40px] p-5 md:p-6 pt-20 md:pt-24 mt-10 md:mt-20 soft-3d-shadow transition-all duration-500 group-hover:shadow-2xl h-full flex flex-col border border-primary/5">
                 {/* Floating Image */}
-                <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-full px-12 flex justify-center">
+                <div className="absolute top-[-60px] md:top-[-80px] left-1/2 -translate-x-1/2 w-full px-8 md:px-12 flex justify-center z-10 pointer-events-none">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="relative"
@@ -63,10 +63,10 @@ export default function FeaturedDishes() {
                     <OptimizedImage
                       src={dish.image}
                       alt={dish.name}
-                      className="w-48 h-48 drop-shadow-[0_30px_30px_rgba(0,0,0,0.15)] rounded-full"
+                      className="w-36 h-36 md:w-48 md:h-48 drop-shadow-[0_20px_20px_rgba(0,0,0,0.15)] rounded-full"
                       width="192"
                       height="192"
-                      loading="lazy"
+                      loading="eager"
                     />
                   </motion.div>
                 </div>

@@ -12,6 +12,7 @@ import BottomNav from './components/BottomNav';
 import CustomCursor from './components/CustomCursor';
 import PageReveal from './components/PageReveal';
 import PromoBanner from './components/PromoBanner';
+import ImagePreloader from './components/ImagePreloader';
 import { motion, useScroll, useSpring, AnimatePresence } from 'motion/react';
 
 function AppRoutes() {
@@ -64,6 +65,7 @@ export default function App() {
           <>
             <PageReveal />
             <CustomCursor />
+            <ImagePreloader />
             <motion.div
               className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left"
               style={{ scaleX }}

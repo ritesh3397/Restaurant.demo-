@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/src/lib/utils';
+import { getFallbackUrl } from '@/src/lib/images';
 
 interface OptimizedImageProps {
   src: string;
@@ -16,34 +17,42 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
   const [isLoaded, setIsLoaded] = useState(false);
   const [errorCount, setErrorCount] = useState(0);
 
-  // Re-sync currentSrc and reset error if src prop changes
+  // Initialize with src but also handle the case where it might be undefined
   useEffect(() => {
-    setCurrentSrc(src);
-    setErrorCount(0);
-    setIsLoaded(false);
+    if (src) {
+      setCurrentSrc(src);
+      setErrorCount(0);
+      setIsLoaded(false);
+    }
   }, [src]);
 
-  // Professional elegant fallback if the primary image fails
-  const fallbackSrc = "/assets/images/hero_dish.png"; // Reliable local hero asset as primary fallback
-  const secondaryFallback = "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop";
-
   const handleError = () => {
-    if (errorCount === 0) {
-      setCurrentSrc(fallbackSrc);
-      setErrorCount(1);
-      setIsLoaded(false);
-    } else if (errorCount === 1) {
-      setCurrentSrc(secondaryFallback);
-      setErrorCount(2);
-      setIsLoaded(false);
+    // Prevent infinite loop
+    if (errorCount < 3) {
+      const nextFallback = getFallbackUrl(alt, errorCount + 1);
+      if (nextFallback && nextFallback !== currentSrc) {
+        setCurrentSrc(nextFallback);
+        setErrorCount(prev => prev + 1);
+        setIsLoaded(false);
+      } else {
+        setErrorCount(4);
+        setIsLoaded(true);
+      }
     } else {
-      setErrorCount(3);
-      setIsLoaded(true); // Stop trying to load
+      setErrorCount(4);
+      setIsLoaded(true);
     }
   };
 
   return (
-    <div className={cn("relative overflow-hidden bg-gray-100/50 backdrop-blur-sm", className)} style={{ width, height }}>
+    <div 
+      className={cn(
+        "relative overflow-hidden bg-gray-100/30 backdrop-blur-sm shadow-inner transition-all duration-300", 
+        className,
+        !isLoaded && "animate-pulse"
+      )} 
+      style={{ width, height }}
+    >
       <AnimatePresence mode="wait">
         {!isLoaded && errorCount < 3 && (
           <motion.div
@@ -51,11 +60,11 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-gray-100/80 backdrop-blur-sm flex items-center justify-center z-10"
+            className="absolute inset-0 bg-bg-warm/20 backdrop-blur-md flex items-center justify-center z-10"
           >
             <div className="flex flex-col items-center">
-              <div className="w-10 h-10 border-2 border-primary/10 border-t-primary rounded-full animate-spin mb-4" />
-              <span className="text-[10px] uppercase tracking-[0.3em] font-black text-primary/40">Lumière</span>
+              <div className="w-8 h-8 border-[1.5px] border-primary/10 border-t-primary rounded-full animate-spin mb-3" />
+              <span className="text-[7px] uppercase tracking-[0.4em] font-black text-primary/20">Lumière</span>
             </div>
           </motion.div>
         )}
@@ -68,29 +77,31 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
         animate={{ 
           opacity: isLoaded ? 1 : 0, 
           scale: isLoaded ? 1 : 1.05,
-          filter: isLoaded ? "blur(0px)" : "blur(10px)"
+          filter: isLoaded ? "blur(0px)" : "blur(15px)"
         }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        onLoad={() => setIsLoaded(true)}
+        onLoad={() => {
+          setIsLoaded(true);
+        }}
         onError={handleError}
         loading={loading}
+        decoding="async"
+        fetchPriority={loading === 'eager' ? 'high' : 'auto'}
         referrerPolicy="no-referrer"
         className={cn(
           "w-full h-full object-cover transition-opacity duration-300",
-          !isLoaded && "invisible"
+          !isLoaded && "opacity-0"
         )}
       />
 
-      {errorCount > 0 && errorCount < 3 && isLoaded && (
-        <div className="absolute top-4 right-4 bg-primary/20 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] text-primary uppercase font-black tracking-widest border border-primary/10 shadow-lg">
-          Exclusive Content
-        </div>
-      )}
-
       {errorCount >= 3 && (
-         <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-light/95 backdrop-blur-md">
-            <div className="w-12 h-12 border-[1px] border-primary/20 rounded-full animate-pulse opacity-20 mb-4" />
-            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-primary/30">Lumière Experience</span>
+         <div className="absolute inset-0 flex flex-col items-center justify-center bg-bg-light/95 backdrop-blur-md px-6 text-center border border-primary/5">
+            <div className="w-8 h-8 border border-primary/10 rounded-full flex items-center justify-center text-primary/20 mb-2">
+              <span className="text-[10px] font-serif">L</span>
+            </div>
+            <span className="text-[7px] uppercase tracking-[0.4em] font-black text-primary/20 leading-relaxed">
+              Selection In<br/>Preparation
+            </span>
          </div>
       )}
     </div>

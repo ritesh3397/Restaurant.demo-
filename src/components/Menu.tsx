@@ -106,17 +106,17 @@ export default function Menu() {
                     delay: Math.min(i * 0.05, 0.4),
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  className="group relative flex flex-col sm:flex-row gap-6 p-6 rounded-[40px] bg-white border border-gray-100 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+                  className="group relative flex flex-col sm:flex-row gap-5 md:gap-6 p-4 md:p-6 rounded-[35px] md:rounded-[40px] bg-white border border-gray-100 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
                 >
                   {/* Image container */}
-                  <div className="relative w-full sm:w-44 h-44 flex-shrink-0 overflow-hidden rounded-[30px] soft-3d-shadow">
+                  <div className="relative w-full sm:w-40 md:w-44 h-48 sm:h-40 md:h-44 flex-shrink-0 overflow-hidden rounded-[25px] md:rounded-[30px] soft-3d-shadow">
                     <OptimizedImage
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full"
                       width="176"
                       height="176"
-                      loading="lazy"
+                      loading={i < 4 ? 'eager' : 'lazy'}
                     />
                     <div className="absolute inset-0 bg-dark/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                        <motion.div

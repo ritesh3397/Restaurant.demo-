@@ -7,14 +7,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-white pt-24 pb-12 px-6 md:px-12 relative overflow-hidden">
+    <footer className="bg-dark text-white pt-16 md:pt-24 pb-24 md:pb-12 px-4 md:px-12 relative overflow-hidden">
       {/* Decorative gradients */}
       <div className="absolute bottom-0 right-0 w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full" />
       <div className="absolute top-0 left-0 w-[30%] h-[30%] bg-secondary/5 blur-[100px] rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-20 border-b border-white/10 pb-20"
+          className="grid grid-cols-1 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-20 border-b border-white/10 pb-16 md:pb-20 text-center md:text-left"
           variants={staggerContainer(0.08, 0)}
           initial="initial"
           whileInView="animate"
