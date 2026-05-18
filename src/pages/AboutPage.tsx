@@ -41,9 +41,9 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
               {[
-                { name: 'Marco Rossi', role: 'Executive Chef', image: '/src/assets/images/lumiere_chef_portrait_1779023224277.png' },
-                { name: 'Elena Chen', role: 'Pastry Chef', image: '/src/assets/images/lumiere_pastry_chef_1779034184131.png' },
-                { name: 'Julian Vane', role: 'Head Sommelier', image: '/src/assets/images/lumiere_sommelier_portrait_1779034201722.png' }
+                { name: 'Marco Rossi', role: 'Executive Chef', image: '/assets/images/lumiere_chef_portrait_1779023224277.png' },
+                { name: 'Elena Chen', role: 'Pastry Chef', image: '/assets/images/lumiere_pastry_chef_1779034184131.png' },
+                { name: 'Julian Vane', role: 'Head Sommelier', image: '/assets/images/lumiere_sommelier_portrait_1779034201722.png' }
               ].map((member, i) => (
                 <motion.div
                   key={i}

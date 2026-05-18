@@ -32,7 +32,7 @@ export default function ContactPage() {
 
         {/* Info Cards */}
         <section className="py-24 px-6 md:px-12 bg-bg-light">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: MapPin, title: 'Our Address', content: '123 Luxury Avenue, NY' },
               { icon: Phone, title: 'Phone Number', content: '+1 (555) 888-0000' },
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="p-10 glass rounded-[40px] text-center soft-3d-shadow border-white/50"
+                className="p-8 sm:p-10 glass rounded-[40px] text-center soft-3d-shadow border-white/50"
               >
                 <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <item.icon size={32} />
@@ -62,7 +62,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto">
              <div className="text-center mb-16">
               <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4">Location</h2>
-              <h3 className="text-5xl md:text-7xl font-black italic">Find Your <span className="text-dark not-italic">Way</span></h3>
+              <h3 className="text-4xl sm:text-5xl md:text-7xl font-black italic">Find Your <span className="text-dark not-italic">Way</span></h3>
             </div>
             
             <motion.div 

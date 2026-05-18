@@ -18,7 +18,7 @@ export default function About() {
           >
             <div className="relative z-10 p-4 border border-primary/10 rounded-[60px] overflow-hidden">
               <OptimizedImage
-                src="/src/assets/images/lumiere_chef_portrait_1779023224277.png"
+                src="/assets/images/lumiere_chef_portrait_1779023224277.png"
                 alt="Executive Chef"
                 className="w-full h-auto rounded-[50px] shadow-2xl"
                 width="1000"

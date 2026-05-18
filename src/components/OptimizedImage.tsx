@@ -15,8 +15,8 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(false);
 
-  // Fallback to a high-quality placeholder if both fail
-  const fallbackSrc = `https://picsum.photos/seed/${alt.replace(/\s+/g, '')}/800/800`;
+  // Professional elegant fallback if the primary image fails
+  const fallbackSrc = "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop";
 
   return (
     <div className={cn("relative overflow-hidden bg-gray-100/50 backdrop-blur-sm", className)} style={{ width, height }}>
@@ -52,6 +52,12 @@ export default function OptimizedImage({ src, alt, className, width, height, loa
           !isLoaded && "invisible"
         )}
       />
+
+      {error && isLoaded && (
+        <div className="absolute top-2 right-2 bg-primary/20 backdrop-blur-md px-2 py-1 rounded text-[8px] text-primary uppercase font-bold tracking-widest">
+          Fallback
+        </div>
+      )}
 
       {error && !isLoaded && (
          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100/80 backdrop-blur-sm">
