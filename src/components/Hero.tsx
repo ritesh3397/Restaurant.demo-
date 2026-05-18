@@ -89,7 +89,7 @@ export default function Hero() {
             className="relative z-10"
           >
             <OptimizedImage
-              src="/assets/images/lumiere_hero_dish_1779022786924.png"
+              src="/assets/images/hero_dish.png"
               alt="Signature Dish"
               className="w-full h-auto drop-shadow-[0_50px_50px_rgba(0,0,0,0.15)] animate-float rounded-full bg-transparent"
               width="1200"
